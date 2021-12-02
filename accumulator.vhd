@@ -7,10 +7,11 @@ use ieee.std_logic_1164.all;
 entity acc is
     port 
     (
-        -- manca il reset
+        i_clock: in std_logic;
+        i_reset: in bit;
+        i_init: in std_logic_vector(32 downto 0);
+        i_enable: in bit;
         i_input: std_logic_vector(32 downto 0); 
-        i_enable: in bit;   
-        i_clock: in bit;
         b_ans: buffer std_logic_vector( 32 downto 0)
     );
 end entity acc;
@@ -19,18 +20,27 @@ end entity acc;
 architecture accArch of acc is
 
 begin
-    acc_mux: process (i_clock) is
+    acc_mux: process (i_clock,i_reset) is
         
         begin
-            if(i_clock='1' and i_enable='1') then 
-                b_ans<=i_input;
-            else b_ans<=b_ans;
+
+            if(i_reset='1') then
+                b_ans<=(others=>'0');
+                elsif(rising_edge(i_clock) and i_enable='1') then 
+                    b_ans<=i_input;
+                elsif(i_init='1') then
+                    b_ans<=(others=>'0');
             end if;
        
     end process acc_mux;
- end architecture  accArch;
-    
---testbench
+
+end accArch;    
+
+
+
+
+/*--testbench
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -41,14 +51,19 @@ end testAcc;
 
 architecture testAccArch of testAcc is
 
-    signal s_clock,s_enable: bit;
-    signal s_init : std_logic_vector(32 downto 0);
+    signal s_clock:std_logic;
+    signal s_enable: bit;
+    signal s_init: std_logic_vector(32 downto 0);
+    signal s_input : std_logic_vector(32 downto 0);
+    signal s_reset: bit;
  
 
         begin
-            accTest: entity work.acc port map (s_init,s_enable,s_clock);
+            accTest: entity work.acc port map (s_clock,s_reset,s_init,s_enable,s_input);
 
             test: process is
+
+             
 
                 
 
@@ -78,7 +93,4 @@ architecture testAccArch of testAcc is
                 wait;
 
             end process test;
-end architecture testAccArch;
-                
-
-
+end architecture testAccArch;*/

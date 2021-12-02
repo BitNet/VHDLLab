@@ -1,40 +1,61 @@
 \documentclass{report}
 \title{Laboratorio del corso direti logiche 2021/2022}
-
+\usepackage{graphicx}
 \begin{document}
 
 
 Documento scritto tra il 26/11/2021 e il 28/11/2021 da tutti i componenti del gruppo:
-
-Davide Frageri
-Federico Natali
-Matteo Sabella
+\begin{itemize}
+\item Davide Frageri
+\item Federico Natali
+\item Matteo Sabella
 (Gabriele Fasolli)
 (Alessandra ...)
+\end{itemize}
+
 
 \section*{Obiettivi e specifica}
 
 L'esperienza di laboratorio si poneva l'obiettivo di realizzare una calcolatrice costitutita dai seguenti elementi:
 
 \begin{itemize}
-\item Debouncer :
-blocco che permette di eliminare i rumori dovuti all'utilizzo del pulsante.
-\item Alu:
-unità aritmetico logica che realizza la computazione  numerica o l'eventuale reset.
-\item Accumulator:
-unità che regolava l'uscita della risposta in base al clock (in quanto il nostro sarebbe dovuto essere un circuito asincrono) e in base ad un segnale di enable.
+\item Debouncer
+\item Alu
+\item Accumulator
 \end{itemize}
 
 la rappresentazione dei numeri sarebbe avvenuta su schermo oled nel nostro caso tramite i driver forniti sulla piattaforma dal docente e i numeri sarebbero stati in binario visto che per inserirli disponevamo di soli interruttori.
 I numeri erano per specifica signed da 32 bit.
 
-Le operazioni da implementare sarebbero state addizione, sottrazione e moltiplicazione, selezionabili tramite pulsanti e l'operazione selezionata doveva essere effettuata tra il numero inserito dall'utente e il risultato dell'ultima operazione eseguita, a meno che non fosse la prima oppure l0utente non avesse deciso di eseguire un reset.
+Le operazioni da implementare sarebbero state addizione, sottrazione e moltiplicazione, selezionabili tramite pulsanti e l'operazione selezionata doveva essere effettuata tra il numero inserito dall'utente e il risultato dell'ultima operazione eseguita, a meno che non fosse la prima oppure l'utente non avesse deciso di eseguire un reset.
 
 La scheda da noi utilizzata era la zedboard.
 
 
 \section*{Schema a blocchi}
-\section*{Componenti}
+
+
+\includegraphics[scale=0.60]{schema}
+
+
+
+\subsection*{Breve descrizione dei componenti}
+\begin{itemize}
+\item Debouncer:
+blocco che permette di eliminare i rumori dovuti all'utilizzo del pulsante.
+\item Alu:
+unità aritmetico logica che realizza la computazione  numerica o l'eventuale reset.
+\item Accumulator:
+unità che regola l'uscita della risposta in base al clock (in quanto il nostro sarebbe dovuto essere un circuito asincrono) e in base ad un segnale di enable.
+L'uscita da eventualmente restituire in output è l'ultimo risultato prodotto dalla alu.
+
+\end{itemize}
+
+
+\section*{Componenti - il debouncer}
+
+Il funzionamento del debouncer
+
 \section*{Risultati}
 
 

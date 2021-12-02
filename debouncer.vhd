@@ -1,7 +1,7 @@
 
 --debouncer
 
-library ieee;
+/*library ieee;
 use ieee.std_logic_1164.all;
 
 
@@ -19,20 +19,101 @@ end entity deb;
 
 architecture debArch of deb is
 
-    variable v_count: bit;begin
-    debProc: process (i_clock, i_bouncy) is
-        
+    signal counter: unsigned(dim downto 0);
+    signal candidate_value, changed_value : std_logic;
+    signal d_s_value: std_logic; 
+
+
+    debProc: process (i_clock, i_bouncy) ieee.std_logic_1164.all
         begin
-            if(rising_edge(i_bouncy)) then
-                if(v_count='0' and i_clock'event) 
-                    then o_pulse<='1';
-                    else v_count:='0'; --se avviene un evento sul bottone si resetta
+
+            if(i_reset='1') 
+                then counter=0; 
+                     candidate_value='0'; 
+                     changed_value='0';
+            elsif(rising_edge(i_clock)) 
+                then
+                    if(counter='0')
+                        then 
+                            changed_value<=candidate_value;
+                    else
+                        counter<=counter-1;
                     end if;
-                elsif(not i_bouncy'event and i_clock'event) 
-                    then v_count:=v_count-1;     --se non cambia lo stato del bottone e passa un ciclo di clock segna
+            else    
+
+
                        
-                       
-            end if;
+            
     end process debProc;        
 
-end architecture debArch;
+end architecture debArch;*/
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity debouncer is
+  generic (
+    counter_size : integer := 12
+  );
+  port (
+    clock, reset : in std_logic;
+    bouncy : in std_logic;
+    pulse : out std_logic
+  );
+end debouncer;
+
+architecture behavioral of debouncer is
+
+  -- The counter that keeps track of the when the signal is stable
+  signal counter : unsigned( counter_size - 1 downto 0 );
+  -- Keep track of the candidate stable value
+  signal candidate_value : std_logic;
+  -- Keep track of the actual stable value
+  signal stable_value : std_logic;
+  -- A delayed version of the stable value allows us to check when it has a
+  -- transition
+  signal delayed_stable_value : std_logic;
+
+begin
+
+  process ( clock, reset ) begin
+    if reset = '0' then
+      counter <= ( others => '1' );
+      candidate_value <= '0';
+      stable_value <= '0';
+    elsif rising_edge( clock ) then
+      -- See if the signal is stable
+      if bouncy = candidate_value then
+        -- It is. Check if it has been stable for long time
+        if counter = 0 then
+          -- The signal is stable. Update the stable signal value
+          stable_value <= candidate_value;
+        else
+          -- We still need to wait for the counter to go down
+          counter <= counter - 1;
+        end if;
+      else
+        -- The signal is not stable. Reset the counter and the candidate
+        -- stable value
+        candidate_value <= bouncy;
+        counter <= ( others => '1' );
+      end if;
+    end if;
+  end process;
+
+  -- Create a delayed version of the stable signal
+  process ( clock, reset ) begin
+    if reset = '0' then
+      delayed_stable_value <= '0';
+    elsif rising_edge( clock ) then
+      delayed_stable_value <= stable_value;
+    end if;
+  end process;
+
+  -- Generate the pulse
+  pulse <= '1' when stable_value = '1' and delayed_stable_value = '0' else
+           '0';
+
+end behavioral;
+
+
