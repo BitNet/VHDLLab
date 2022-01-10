@@ -1,4 +1,4 @@
-# VHDLLab
+# VHDLRepo
 
 
 This repository aims to ccollect the VHDL code i've been writin during my Logic Network course.
