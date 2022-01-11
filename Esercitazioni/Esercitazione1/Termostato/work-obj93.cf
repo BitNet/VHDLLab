@@ -1,0 +1,6 @@
+v 4
+file . "Termostato.vhdl" "d4a7ab0e28436c013bd04bd379e5e65c54026877" "20220111102206.245":
+  entity termostato at 2( 2) + 0 on 31;
+  architecture termarch of termostato at 12( 185) + 0 on 32;
+  entity termostatotest at 46( 833) + 0 on 33;
+  architecture termostatotestarch of termostatotest at 49( 889) + 0 on 34;

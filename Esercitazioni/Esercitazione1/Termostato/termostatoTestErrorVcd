@@ -1,0 +1,100 @@
+$date
+  Tue Jan 11 11:22:12 2022
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module termostatotest $end
+$var reg 4 ! s_sensore[3:0] $end
+$scope module t $end
+$var reg 4 " i_sensore[3:0] $end
+$var reg 1 # o_red $end
+$var reg 1 $ o_blue $end
+$var reg 1 % o_error $end
+$var reg 1 & s_red $end
+$var reg 1 ' s_blue $end
+$var reg 1 ( s_a $end
+$var reg 1 ) s_b $end
+$var reg 1 * s_c $end
+$var reg 1 + s_d $end
+$var reg 1 , s_helper $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+b0000 !
+b0000 "
+1#
+1$
+1%
+1&
+1'
+0(
+0)
+0*
+0+
+1,
+#20000000
+b0001 !
+b0001 "
+0#
+0%
+0&
+1(
+0,
+#40000000
+b0010 !
+b0010 "
+0(
+1)
+#60000000
+b1000 !
+b1000 "
+1#
+0$
+1&
+0'
+0)
+1+
+#80000000
+b0010 !
+b0010 "
+0#
+1$
+0&
+1'
+1)
+0+
+#100000000
+b0001 !
+b0001 "
+1(
+0)
+#120000000
+b1010 !
+b1010 "
+0$
+1%
+0'
+0(
+1)
+1+
+#140000000
+b1001 !
+b1001 "
+1(
+0)
+#160000000
+b0010 !
+b0010 "
+1$
+0%
+1'
+0(
+1)
+0+
