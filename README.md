@@ -1,7 +1,7 @@
 # VHDLRepo
 
 
-This repository aims to ccollect the VHDL code i've been writin during my Logic Network course.
+This repository aims to collect the VHDL code i've been writing during my Logic Circuit course.
 
 > VhdlLab contains the code made during the labs at university.
 
