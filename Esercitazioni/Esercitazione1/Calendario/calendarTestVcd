@@ -1,0 +1,104 @@
+$date
+  Tue Jan 11 12:53:20 2022
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module calendartest $end
+$var reg 4 ! s_month[3:0] $end
+$var reg 5 " s_days[4:0] $end
+$scope module c $end
+$var reg 1 # i_a $end
+$var reg 1 $ i_b $end
+$var reg 1 % i_c $end
+$var reg 1 & i_d $end
+$var reg 1 ' o_a $end
+$var reg 1 ( o_b $end
+$var reg 1 ) o_c $end
+$var reg 1 * o_d $end
+$var reg 1 + o_e $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+b0001 !
+b11111 "
+0#
+0$
+0%
+1&
+1'
+1(
+1)
+1*
+1+
+#30000000
+b0010 !
+b11100 "
+1%
+0&
+0*
+0+
+#40000000
+b0011 !
+b11111 "
+1&
+1*
+1+
+#50000000
+b0100 !
+b11110 "
+1$
+0%
+0&
+0+
+#60000000
+b0101 !
+b11111 "
+1&
+1+
+#70000000
+b0110 !
+b11110 "
+1%
+0&
+0+
+#80000000
+b0111 !
+b11111 "
+1&
+1+
+#90000000
+b1000 !
+1#
+0$
+0%
+0&
+#100000000
+b1001 !
+b11110 "
+1&
+0+
+#110000000
+b1010 !
+b11111 "
+1%
+0&
+1+
+#120000000
+b1011 !
+b11110 "
+1&
+0+
+#130000000
+b1100 !
+b11111 "
+1$
+0%
+0&
+1+

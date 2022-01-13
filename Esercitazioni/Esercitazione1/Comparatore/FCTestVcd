@@ -1,0 +1,63 @@
+$date
+  Thu Jan 13 15:44:17 2022
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module fctest $end
+$var reg 1 ! s_a $end
+$var reg 1 " s_b $end
+$var reg 2 # s_precexit[1:0] $end
+$scope module fc $end
+$var reg 2 $ i_exit[1:0] $end
+$var reg 1 % i_a $end
+$var reg 1 & i_b $end
+$var reg 2 ' o_exit[1:0] $end
+$var reg 1 ( s_a $end
+$var reg 1 ) s_b $end
+$var reg 2 * s_exit[1:0] $end
+$scope module hc $end
+$var reg 1 + i_a $end
+$var reg 1 , i_b $end
+$var reg 2 - o_exit[1:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+0"
+b00 #
+b00 $
+0%
+0&
+b00 '
+0(
+0)
+b00 *
+0+
+0,
+b00 -
+#10000000
+b11 #
+b11 $
+b11 '
+#20000000
+1"
+b10 #
+b10 $
+1&
+b10 '
+#30000000
+1!
+0"
+b01 #
+b01 $
+1%
+0&
+b01 '

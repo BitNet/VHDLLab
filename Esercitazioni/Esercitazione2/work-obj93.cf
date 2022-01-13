@@ -1,0 +1,6 @@
+v 4
+file . ".\Encoder.vhdl" "8c878562febc307d1442865c4798295bba02ac6f" "20220113160214.057":
+  entity encoder at 3( 4) + 0 on 21;
+  architecture encoderarch of encoder at 14( 164) + 0 on 22;
+  entity encodertest at 34( 549) + 0 on 23;
+  architecture encodertestarch of encodertest at 37( 599) + 0 on 24;

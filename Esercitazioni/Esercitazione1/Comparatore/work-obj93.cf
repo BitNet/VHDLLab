@@ -1,0 +1,11 @@
+v 4
+file . "HalfComparator.vhdl" "7bfef02d0f3e80a74adc764882c69a61903b6ec6" "20220113134328.340":
+  entity halfcomparator at 3( 4) + 0 on 11;
+  architecture halfcomparatorarch of halfcomparator at 15( 160) + 0 on 12;
+  entity hctest at 35( 353) + 0 on 13;
+  architecture hctarch of hctest at 38( 393) + 0 on 14;
+file . ".\FullComparator.vhdl" "973bb5ce36eb6a2d33b28b806eb709531be2a9b6" "20220113145241.546":
+  entity fullcomparator at 3( 4) + 0 on 23;
+  architecture fullcomparatorarch of fullcomparator at 15( 220) + 0 on 24;
+  entity fctest at 48( 781) + 0 on 25;
+  architecture fctarch of fctest at 51( 821) + 0 on 26;
